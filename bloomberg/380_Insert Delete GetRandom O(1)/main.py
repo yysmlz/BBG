@@ -16,12 +16,13 @@ import random
 
 class RandomizedSet:
     def __init__(self):
-        self.vals = []
+        self.vals = [] #可伸缩的
         self.idxs = {}
 
     def insert(self, val: int) -> bool:
         if val in self.idxs:
             return False
+        
         idx = len(self.vals)
         self.vals.append(val)
         self.idxs[val] = idx
@@ -30,6 +31,7 @@ class RandomizedSet:
     def remove(self, val: int) -> bool:
         if val not in self.idxs:
             return False
+        
         idx = self.idxs.pop(val)
         if idx == len(self.vals) - 1:
             self.vals.pop()
